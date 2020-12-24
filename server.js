@@ -8,8 +8,8 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.get("/", (req, res) => {
-	res.send(req.rawHeaders);
+app.post("/contact", (req, res) => {
+	res.send(req.body);
 });
 
 // Setting Express to listen on port 5000
