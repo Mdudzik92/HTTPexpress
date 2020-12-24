@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
-	res.send(req.header("host"));
+	res.send(req.header("user-agent"));
 });
 
 // Setting Express to listen on port 5000
