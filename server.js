@@ -9,7 +9,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.post("/contact", (req, res) => {
-	res.send(req.body);
+	if (!req.body.name) {
+		return res.status(400).send("Name is required");
+	}
+
+	// DATABASE STUFF
+	res.status(201).send(`Thank you ${req.body.name}`);
 });
 
 // Setting Express to listen on port 5000
