@@ -7,12 +7,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
-app.delete("post/:id", (req, res) => {
-	// DATABASE STUFF
-
-	res.json({ msg: `Post ${req.params.id} deleted` });
-});
+app.use(express.static("public"));
 
 // Setting Express to listen on port 5000
 app.listen(5000, () => console.log(`Server started on 5000`));
