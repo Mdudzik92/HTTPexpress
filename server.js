@@ -17,5 +17,17 @@ app.post("/contact", (req, res) => {
 	res.status(201).send(`Thank you ${req.body.name}`);
 });
 
+app.post("/login", (req, res) => {
+	if (!req.header("x-auth-token")) {
+		return res.status(400).send("No Token");
+	}
+
+	if (req.header("x-auth-token") !== "123456") {
+		return res.status(401).send("Not authorized");
+	}
+
+	res.send("Logged in");
+});
+
 // Setting Express to listen on port 5000
 app.listen(5000, () => console.log(`Server started on 5000`));
