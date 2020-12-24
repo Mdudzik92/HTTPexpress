@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
-	res.send("<h1>Hello From Express</h1>");
+	res.send({ msg: "Hello" });
 });
 
 // Setting Express to listen on port 5000
